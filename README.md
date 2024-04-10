@@ -1,6 +1,6 @@
 # Co-translocational unfolding of HP35 in MIL-101(Cr).
 It contains input files to simulate translocation of a protein across pores of metal-organic frameworks (MOFs) using Molecular Dynamics (MD) simulations.
-HP35 and MIL-101(Cr) have been used as the protein and the MOF for current project.
+HP35 and MIL-101(Cr) have been used as the protein and the MOF for current project, respectively.
 Required input files for each step of simulations have been kept in seperate folders.
 Description of the folders:
   1. Topology folder: contains Forcefield files.
