@@ -1,0 +1,70 @@
+
+define			 = -DPOSRES_mof
+integrator               = md
+tinit                    = 0
+dt                       = 0.001
+nsteps                   = 100000000
+nstcomm                  = 1
+comm_grps                = system
+comm_mode                = linear
+nstcalcenergy            = 1
+nstxout-compressed       = 10000
+compressed-x-grps	 = System 
+nstlog                   = 10000
+nstenergy                = 10000
+energygrps               = System
+cutoff-scheme            = Verlet
+nstlist                  = 20
+ns_type                  = grid
+pbc                      = xyz
+periodic-molecules	 = yes
+rlist                    = 1.0
+coulombtype              = PME
+rcoulomb                 = 1.0
+vdwtype                  = Cut-off
+rvdw                     = 1.0
+DispCorr                 = EnerPres
+fourierspacing           = 0.12
+pme_order                = 4
+ewald_rtol               = 1e-5
+tcoupl                   = V-rescale
+tc_grps                  = system
+tau_t                    = 0.5
+ref_t                    = 298
+gen_vel                  = yes
+gen-temp		 = 298
+gen-seed		 = -504575530020	;change manually for different runs
+;freezegrps		 = UFF 
+;freezedim		 = Y Y Y
+constraints              = h-bonds
+constraint_algorithm     = LINCS
+continuation             = no
+lincs_order              = 4
+lincs_iter               = 1
+lincs_warnangle          = 30
+
+
+
+pull			= yes
+pull-print-com 		= yes
+pull-print-ref-value	= no
+pull-print-components	= no
+pull-nstxout		= 10000
+pull-nstfout		= 10000
+pull-pbc-ref-prev-step-com = no
+pull-xout-average	= no
+pull-fout-average	= no
+
+pull-ngroups		= 2
+pull-ncoords		= 1
+
+pull-group1-name	= Protein
+pull-group1-pbcatom	= 0
+pull-group2-name	= cavity-containing-protein
+pull-coord1-type 	= umbrella
+pull-coord1-geometry	= distance
+pull-coord1-groups	= 1 2
+pull-coord1-dim		= Y Y Y
+pull-coord1-start       = yes
+pull-coord1-rate	= 0.0
+pull-coord1-k		= 10000
