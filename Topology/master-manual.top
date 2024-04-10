@@ -1,0 +1,40 @@
+;master topology
+
+#define _FF_AMBER
+#define _FF_AMBER99SBILDN
+
+[ defaults ]
+; nbfunc      comb-rule      gen-pairs       fudgeLJ    fudgeQQ
+1             2              yes             0.5        0.8333
+
+#include "./amber99sb-star-ildn.ff/ffnonbonded.itp"
+#include "./amber99sb-star-ildn.ff/ffbonded.itp"
+#include "./amber99sb-star-ildn.ff/gbsa.itp"
+
+#include "./obgmx.itp"
+#ifdef POSRES_mof
+#include "./mof_pr.itp"
+#endif
+
+#include "./hp35.top"
+#ifdef POSRES_protein
+#include "./hp35.itp"
+#endif
+
+#include "./amber99sb-star-ildn.ff/tip3p.itp"
+#ifdef POSRES_WATER
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+#include "./amber99sb-star-ildn.ff/ions.itp"
+
+[ system ]
+UFF MOLECULE AND VILLIN 1 in water
+
+[ molecules ]
+UFF      1
+Protein_chain_A		1
+SOL         36629
+CL               1
