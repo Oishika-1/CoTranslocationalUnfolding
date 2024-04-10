@@ -6,6 +6,7 @@ Description of the folders:
   1. Topology folder: contains Forcefield files.
   2. CanonicalSampling folder: contains input files corresponding to the canonical sampling run.
   3. Translocation-simulation folder: contains input files for carrying out translocation simulation.
+
 Folders contain nested subfolders. When required, we have provided a README.txt file in some of the subfolders.
 Contents of each folder/subfolder:
   1. Run input file (.mdp).
